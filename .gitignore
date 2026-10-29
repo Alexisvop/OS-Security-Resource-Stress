@@ -1,0 +1,21 @@
+# Local experiment output
+*.log
+*.pid
+*.dat
+metricas.csv
+reporte_desempenio.txt
+
+# Platform / editor noise
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+.vscode/
+.idea/
+
+# Local development artifacts
+__pycache__/
+*.pyc
+.env
+.env.*
+!.env.example
