@@ -1,0 +1,18 @@
+name: Shell syntax (non-executing)
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  bash-syntax:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@v4
+      - name: Check Bash syntax only
+        run: bash tests/static_checks.sh
