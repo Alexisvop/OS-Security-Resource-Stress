@@ -4,6 +4,21 @@
 
 This repository contains an academic **Linux availability/observability experiment**, not malware that spreads or establishes persistence. The simulation generates local load; the detector reads operating-system statistics and temporary artifacts; the measurement script samples A/B/C scenarios; the cleanup and hardening scripts demonstrate administrative techniques but have significant safety limitations.
 
+## Historical deployment and network boundary
+
+**Reported execution environment:** Windows host running VirtualBox; Ubuntu Server guest executing the operating-systems lab; guest network adapter set to **Bridged Adapter**. The operator recalls connecting from Windows PowerShell to Ubuntu Server across the network (likely SSH; exact command/IP not confirmed).
+
+```text
+              Local area network (LAN)
+                  /            \
+       Windows host          Ubuntu Server guest
+       PowerShell     <---->  VirtualBox bridged adapter
+          |                    (Linux lab scripts)
+          +-- runs VirtualBox ------+
+```
+
+The guest is **OS-virtualized but not network-isolated**. Bridged mode can put the guest on the same LAN as the host, potentially exposing listening services to LAN peers. For later hazardous workload testing, prefer a snapshot VM with host-only SSH (or an offline VM console), VM resource limits, and no unnecessary shared folders. Do not confuse the original lab's bridged connectivity with a safe, air-gapped environment.
+
 ## Modules and interface
 
 | Script | Inputs | Relevant side effects | Output |
