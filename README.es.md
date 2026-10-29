@@ -20,6 +20,14 @@ Este proyecto explora el comportamiento de un sistema Linux frente a cargas que 
 
 La simulación **no realiza autorreplicación, persistencia o robo de información**; es una práctica de disponibilidad y observabilidad del sistema operativo.
 
+## 🖥️ Entorno original de la práctica
+
+La simulación se ejecutó en una **máquina virtual Ubuntu Server mediante VirtualBox**, con la interfaz de red configurada como **Adaptador puente**. El acceso se realizaba desde Windows a través de PowerShell, aparentemente mediante una conexión remota por la red local. No se ha verificado el comando SSH exacto ni la dirección IP utilizada.
+
+**Aislamiento:** la virtualización separa el sistema operativo invitado del anfitrión, pero **el adaptador puente no aísla la red**: Ubuntu puede funcionar como otro equipo de la LAN y ser alcanzable según las reglas de firewall. Esta es la configuración histórica reportada, no una recomendación para volver a ejecutar los scripts sin controles adicionales.
+
+Para pruebas futuras, se recomienda usar una VM desechable con snapshot, límites de CPU/RAM/disco y carpetas compartidas deshabilitadas; utilizar **red solo-anfitrión** si se requiere acceso SSH desde Windows, o desconectar la red y operar mediante la consola de VirtualBox. Consulta la [revisión de seguridad](docs/SECURITY_REVIEW.md).
+
 ## 🧩 Componentes
 
 | Script | Función principal |
