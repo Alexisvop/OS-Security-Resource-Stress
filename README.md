@@ -30,6 +30,14 @@ This course project explores how operating systems behave under resource pressur
 - **System hardening:** examples involving UFW, SSH, password policy, process limits, and ACLs; the script **changes host configuration** and is not safe to run unattended.
 - **Performance comparison:** three scenarios—baseline, stress, and post-containment—with text/CSV reporting.
 
+## 🖥️ Original lab environment (reported)
+
+The coursework was run in an **Ubuntu Server virtual machine using VirtualBox**, with the VM network adapter configured as **Bridged Adapter**. The operator recalls accessing Ubuntu Server from **Windows PowerShell over the local network**; SSH is the likely mechanism, but the original connection command, guest IP address, and SSH configuration have not been independently verified.
+
+**Isolation boundary:** VirtualBox separates the Ubuntu guest operating system from the Windows host, but **bridged networking is not an isolated network**. The guest can appear as a separate device on the LAN and may be reachable by other LAN devices, subject to firewall settings. This documents the **historical lab configuration**, not a recommendation for running the original stress scripts unchanged.
+
+For future controlled testing, take a VM snapshot, set CPU/RAM/disk limits, disable unnecessary shared folders, and prefer a **host-only network** for host-to-guest SSH without connecting the guest to the rest of the LAN—or use a disconnected VM and the VirtualBox console. Host-only networking is not a complete security sandbox. See [security review](docs/SECURITY_REVIEW.md).
+
 ## 🧭 System architecture
 
 ```mermaid
