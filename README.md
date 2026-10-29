@@ -169,6 +169,6 @@ Known risks include high CPU/RAM/disk consumption, termination of unrelated proc
 
 **Course:** Operating Systems · **Institution:** Universidad Nacional Autónoma de México (UNAM), Facultad de Ingeniería · **Type:** Academic project / Linux Bash prototype.
 
-**Author / repository owner:** [Alexisvop](https://github.com/Alexisvop) · **License:** Not yet specified (confirm authorship and course/team requirements before adding a license).
+**Author / repository owner:** [Alexisvop](https://github.com/Alexisvop) · **License:** Not yet.
 
 <sub>Responsible-use note: no code in this repository should be taken as a recommendation to test resource exhaustion on systems without explicit authorization.</sub>
