@@ -23,6 +23,12 @@
 - The baseline/under-stress/after-containment experiment is not a controlled scientific benchmark until sampling conditions are standardized and independently reproduced.
 - The script comments describe an "isolated VM," but the original scripts do **not enforce** that prerequisite.
 
+## Recorded historical VM network configuration
+
+The original operating-systems exercise reportedly ran on **Ubuntu Server in VirtualBox with a bridged network adapter**, controlled from Windows PowerShell over the LAN (likely SSH, not independently confirmed). This provides guest/host operating-system separation, **not a network isolation boundary**. Other LAN systems could potentially reach the guest's open services, subject to firewall policy. The historical execution is not evidence that the original scripts are safe for unmodified re-execution.
+
+The more restrictive isolated/disconnected-network setup in the recommendations below is a **future-testing requirement**, not a description of how the coursework network was originally configured. For authorized local administration, a host-only adapter can permit Windows-to-Ubuntu connectivity without exposing the guest to the full LAN; alternatively, manage the VM from its console with network access disabled. Review exposure and firewall rules, take a snapshot, apply resource limits, and disable shared folders before considering any controlled dynamic test.
+
 ## Responsible execution policy
 
 1. **Never execute the stress, cleanup, or hardening scripts on physical/personal/workstation/production/shared hosts.**
